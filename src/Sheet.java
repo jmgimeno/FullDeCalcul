@@ -39,7 +39,7 @@ public class Sheet {
             throw new CellNotValidException();
     }
 
-    private void initSheet(){
+    public final void initSheet(){
         sheet = new HashMap<>();
         for (int x = 0; x < size; x++) {
             for (int y = 0; y < size; y++) {
