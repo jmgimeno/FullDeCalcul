@@ -1,3 +1,5 @@
+package spreadsheet;
+
 import java.util.Set;
 
 public class Mult extends Operation {
@@ -12,7 +14,7 @@ public class Mult extends Operation {
     }
 
     /*@Override
-    public MaybeValue evaluate(ExpressionVisitor visitor) {
+    public spreadsheet.MaybeValue evaluate(ExpressionVisitor visitor) {
         return visitor.visit(this);
     }*/
 

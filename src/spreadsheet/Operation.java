@@ -1,24 +1,26 @@
-import java.util.Set;
+package spreadsheet;
 
-public class Plus extends Operation {
+public abstract class Operation implements Expression{
+    private Expression e1, e2;
 
-    Plus(Expression e1, Expression e2) {
-        super(e1, e2);
+    Operation(Expression e1, Expression e2){
+        this.e1 = e1;
+        this.e2 = e2;
+    }
+
+    public Expression getExp1(){
+        return this.e1;
+    }
+
+    public Expression getExp2(){
+        return this.e2;
     }
 
     @Override
-    public int operate(int i1, int i2) {
-        return i1 + i2;
-    }
-
-    /*@Override
-    public MaybeValue evaluate(ExpressionVisitor visitor) {
-        return visitor.visit(this);
-    }*/
-
-    /*@Override
     public MaybeValue evaluate() {
-        return evaluateOp(getExp1(), getExp2());
+        if (e1 instanceof NoValue) return NoValue.INSTANCE;
+        if (e2 instanceof NoValue) return NoValue.INSTANCE;
+        return evaluateOp(e1, e2);
     }
 
     private MaybeValue evaluateOp(Expression e1, Expression e2){
@@ -36,10 +38,7 @@ public class Plus extends Operation {
             return evaluateOp(e1, e2.evaluate());
         }
         return NoValue.INSTANCE;
-    }*/
-
-    @Override
-    public Set<Cell> references() {
-        return null;
     }
+
+    public abstract int operate(int i1, int i2);
 }

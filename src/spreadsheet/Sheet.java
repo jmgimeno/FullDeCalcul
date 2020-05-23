@@ -1,3 +1,5 @@
+package spreadsheet;
+
 import enums.Letters;
 import exceptions.CellNotValidException;
 

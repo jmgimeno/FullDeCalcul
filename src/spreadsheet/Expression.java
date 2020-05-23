@@ -1,8 +1,9 @@
-import javax.swing.event.ChangeListener;
+package spreadsheet;
+
 import java.util.Set;
 
 public interface Expression {
     MaybeValue evaluate();
-    //MaybeValue evaluate(ExpressionVisitor visitor);
+    //spreadsheet.MaybeValue evaluate(ExpressionVisitor visitor);
     Set<Cell> references();
 }

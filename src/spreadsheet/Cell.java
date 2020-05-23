@@ -1,3 +1,5 @@
+package spreadsheet;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -13,7 +15,7 @@ public class Cell extends Observable implements Observer {
         this.val = exp.evaluate();
     }
 
-    /*public MaybeValue evaluate(){
+    /*public spreadsheet.MaybeValue evaluate(){
         return this.val;
     }*/
 

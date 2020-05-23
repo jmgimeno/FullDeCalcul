@@ -1,3 +1,5 @@
+package spreadsheet;
+
 import exceptions.CellNotValidException;
 
 public class SpreadSheet {
