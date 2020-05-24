@@ -51,6 +51,24 @@ public class ComplexSpreadSheetTest {
                 assertFalse(get("d4").hasValue());
     }
 
+    @Test
+    public void reference_expressions() throws CellNotValidException {
+        put("d1", "a1");
+        put("d2", "a2");
+        put("c1", mult("d1", "b1"));
+        put("c2", mult("d2", "b2"));
+        assertEquals(new SomeValue(200), get("c1"));
+        assertEquals(new SomeValue(1200), get("c2"));
+    }
+
+    @Test
+    public void reference_expressions_NoValue() throws CellNotValidException {
+        put("d1", "a1");
+        put("e1", NoValue.INSTANCE);
+        put("d2", "e1");
+        put("c1", mult("d1", "d2"));
+        assertFalse(get("c1").hasValue());
+    }
 
     @After
     public void tearDown(){
