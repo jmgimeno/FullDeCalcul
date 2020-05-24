@@ -1,21 +1,14 @@
-import java.util.Set;
+package sheet;
 
 public class NoValue extends MaybeValue {
     public static final NoValue INSTANCE = new NoValue();
 
-    /*@Override
-    public MaybeValue evaluate(ExpressionVisitor visitor) {
-        return INSTANCE;
-    }*/
+
+    private NoValue(){}
 
     @Override
     public MaybeValue evaluate() {
         return INSTANCE;
-    }
-
-    @Override
-    public Set<Cell> references() {
-        return null;
     }
 
     @Override

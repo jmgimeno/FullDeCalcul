@@ -1,3 +1,5 @@
+package sheet;
+
 import enums.Letters;
 import exceptions.CellNotValidException;
 
@@ -5,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Sheet {
-    private static HashMap<String,Cell> sheet;
+    private static HashMap<String, Cell> sheet;
     private final int size;
     private static final List<String> cols = Letters.getValues();
 

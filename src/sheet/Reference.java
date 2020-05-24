@@ -1,10 +1,9 @@
-import java.util.Objects;
-import java.util.Set;
+package sheet;
 
 public class Reference implements Expression {
     private final Cell cell;
 
-    Reference(Cell ref){
+    public Reference(Cell ref){
         this.cell = ref;
     }
 
@@ -12,19 +11,9 @@ public class Reference implements Expression {
         return this.cell;
     }
 
-    /*@Override
-    public MaybeValue evaluate(ExpressionVisitor visitor) {
-        return visitor.visit(this);
-    }*/
-
     @Override
     public MaybeValue evaluate() {
         return cell.getExp().evaluate();
-    }
-
-    @Override
-    public Set<Cell> references() {
-        return null;
     }
 
     @Override
@@ -36,6 +25,6 @@ public class Reference implements Expression {
             return false;
         }
         final Reference other = (Reference) obj;
-        return Objects.equals(this.cell, other.cell);
+        return this.cell.equals(other.cell);
     }
 }

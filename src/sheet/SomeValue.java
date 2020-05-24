@@ -1,4 +1,4 @@
-import java.util.Set;
+package sheet;
 
 public class SomeValue extends MaybeValue {
     private int value;
@@ -9,6 +9,11 @@ public class SomeValue extends MaybeValue {
 
     public int getValue(){
         return this.value;
+    }
+
+    @Override
+    public MaybeValue evaluate() {
+        return this;
     }
 
     @Override
@@ -26,20 +31,5 @@ public class SomeValue extends MaybeValue {
         }
         final SomeValue other = (SomeValue) obj;
         return this.value == other.value;
-    }
-
-    /*@Override
-    public MaybeValue evaluate(ExpressionVisitor visitor) {
-        return visitor.visit(this);
-    }*/
-
-    @Override
-    public MaybeValue evaluate() {
-        return this;
-    }
-
-    @Override
-    public Set<Cell> references() {
-        return null;
     }
 }

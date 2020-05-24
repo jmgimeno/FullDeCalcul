@@ -1,3 +1,5 @@
+package sheet;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -13,10 +15,6 @@ public class Cell extends Observable implements Observer {
         this.val = exp.evaluate();
     }
 
-    /*public MaybeValue evaluate(){
-        return this.val;
-    }*/
-
     public String getRef(){
         return this.ref;
     }
@@ -29,7 +27,7 @@ public class Cell extends Observable implements Observer {
         return this.exp;
     }
 
-    void setExp(Expression exp){
+    public void setExp(Expression exp){
         this.exp = exp;
         addObserversCell(exp);
         setChanged();
@@ -63,5 +61,23 @@ public class Cell extends Observable implements Observer {
             }
 
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cell other = (Cell) obj;
+        if (!this.ref.equals(other.ref)) {
+            return false;
+        }
+        if (!this.val.equals(other.val)) {
+            return false;
+        }
+        return this.exp.equals(other.exp);
     }
 }

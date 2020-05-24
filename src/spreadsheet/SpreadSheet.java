@@ -1,4 +1,7 @@
+package spreadsheet;
+
 import exceptions.CellNotValidException;
+import sheet.*;
 
 public class SpreadSheet {
     private static int size = 5;
